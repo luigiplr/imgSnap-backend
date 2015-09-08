@@ -3,7 +3,13 @@ var express = require('express'),
     fs = require('fs'),
     path = require('path'),
     Cookies = require('cookies'),
+    db = require('../lib/database'),
     router = express.Router();
+
+
+var connection = db.connectdb();
+
+
 
 router.get('/', function(req, res) {
     res.render('home');
@@ -21,16 +27,22 @@ router.get('/TermsofService', function(req, res) {
 router.get("/:id", function(req, res) {
 
     var id = req.params.id.split('.')[0];
-
+    var direct = false;
     if (req.params.id.split('.')[1]) {
         console.log('direct')
+        direct = true;
     }
 
-    console.log(id)
+    connection.query('SELECT * FROM images WHERE id = ' + connection.escape(id), function(err, row, fields) {
+        console.log(row)
+        if (!direct) {
+            res.render('image', row[0]);
+        } else {
 
-    res.render('image', {
-        id: id
+        }
+
     });
+
 
 });
 

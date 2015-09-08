@@ -38,8 +38,7 @@ router.post('/upload', function(req, res) {
         files.forEach(function(file) {
             imgur.uploadFile(file.path)
                 .then(function(json) {
-                    console.log(connection.escape(id) + ',' + connection.escape(json.data.link) + ',' + "'" + connection.escape(json.data.datetime) + "'" + ',' + connection.escape(json.data.deletehash) + ',' + connection.escape(owner))
-                    var query = connection.query('INSERT INTO images ( id, direct, timestamp, delete, owner ) VALUES ( ' + connection.escape(id) + ',' + connection.escape(json.data.link) + ',' + "'" + connection.escape(json.data.datetime) + "'" + ',' + connection.escape(json.data.deletehash) + ',' + connection.escape(owner) + ')');
+                    connection.query("INSERT INTO `imgsnap`.`images` (`id`, `direct`, `timestamp`, `delete`, `owner`) VALUES ('" + connection.escape(id).replace(/'/g, '') + "', '" + connection.escape(json.data.link).replace(/'/g, '') + "', '" + connection.escape(json.data.datetime) + "', '" + connection.escape(json.data.deletehash).replace(/'/g, '') + "', '" + connection.escape(owner).replace(/'/g, '') + "')");
                 })
                 .catch(function(err) {
                     console.error(err.message);
