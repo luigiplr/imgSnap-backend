@@ -52,7 +52,7 @@ router.post('/upload', function(req, res) {
                 })
                 .catch(function(err) {
                     fs.unlink(file.path);
-                    console.error(err.message);
+                    console.log(err);
                 });
         });
     });
