@@ -54,6 +54,11 @@ router.get("/:id", function(req, res) {
             if (!direct) {
                 res.render('image', row[0]);
             } else {
+
+                res.writeHead(200, {
+                    'Content-Type': 'image/png',
+                    'Transfer-Encoding': 'chunked'
+                });
                 needle.get(row[0].direct).pipe(res);
             }
         }
