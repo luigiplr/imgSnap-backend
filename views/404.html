@@ -21,21 +21,9 @@
 <body>
 
 
-<img id="image" src="<%= direct %>"></img>
+This is a 404 <br> That is all.
 
-<script src="/socket.io/socket.io.js"></script>
-<script>
-	var url = window.location.pathname.replace('/', '');
-  var socket = io('http://broken-universe.com');
-  socket.on('uploaded', function (data) {
-    console.log(data);
-    console.log(data.id, url)
-    if(data.id === url){
-    	console.log("YIPPY");
-    	document.getElementById("image").src=data.direct;
-    }
-  });
-</script>
+
 
 </body>
 

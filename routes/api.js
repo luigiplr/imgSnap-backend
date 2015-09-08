@@ -12,7 +12,6 @@ var express = require('express'),
 var connection = db.connectdb();
 
 
-
 router.post('/upload', function(req, res) {
 
     var id = tools.makeid();
@@ -23,7 +22,8 @@ router.post('/upload', function(req, res) {
         files = [],
         fields = [];
     form.uploadDir = 'tmp/';
-
+    form.parse(req);
+    res.send('http://' + req.headers.host + '/' + id);
     form.on('field', function(field, value) {
         fields.push(value);
     });
@@ -39,6 +39,12 @@ router.post('/upload', function(req, res) {
             imgur.uploadFile(file.path)
                 .then(function(json) {
                     connection.query("INSERT INTO `imgsnap`.`images` (`id`, `direct`, `timestamp`, `delete`, `owner`) VALUES ('" + connection.escape(id).replace(/'/g, '') + "', '" + connection.escape(json.data.link).replace(/'/g, '') + "', '" + connection.escape(json.data.datetime) + "', '" + connection.escape(json.data.deletehash).replace(/'/g, '') + "', '" + connection.escape(owner).replace(/'/g, '') + "')");
+                    res.app.emit("uploaded", id)
+                    var event = req.app.get('event');
+                    event.emit('uploaded', {
+                        id: id,
+                        direct: json.data.link
+                    });
                 })
                 .catch(function(err) {
                     console.error(err.message);
@@ -48,12 +54,8 @@ router.post('/upload', function(req, res) {
 
     });
 
-    form.parse(req);
-
-    res.send('http://' + req.headers.host + '/' + id);
 
 });
-
 
 
 router.get('/', function(req, res) {
