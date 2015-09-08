@@ -1,6 +1,7 @@
 var fs = require('fs'),
     path = require('path'),
     express = require('express'),
+    db = require('./lib/database'),
     favicon = require('static-favicon'),
     bodyParser = require('body-parser'),
     routes = require('./routes/index'),
@@ -52,4 +53,10 @@ module.exports = app;
 
 var server = app.listen(app.get('port'), function() {
     console.log('imgSnap Server started on port: %d', server.address().port);
+});
+
+db.connectdb().connect(function(err) {
+    if (err) {
+        console.log(err);
+    }
 });

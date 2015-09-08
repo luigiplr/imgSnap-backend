@@ -4,13 +4,20 @@ var express = require('express'),
     fs = require('fs'),
     url = require('url'),
     bodyParser = require('body-parser'),
-    router = express.Router();
+    router = express.Router(),
+    uuid = require('node-uuid'),
+    db = require('../lib/database'),
+    tools = require('../lib/functions');
+
+var connection = db.connectdb();
+
+
 
 router.post('/upload', function(req, res) {
 
-
-
-
+    var id = tools.makeid();
+    //console.log(id)
+    var owner = uuid.v1();
 
     var form = new formidable.IncomingForm(),
         files = [],
@@ -25,14 +32,14 @@ router.post('/upload', function(req, res) {
     });
     form.on('end', function() {
 
-        var owner = fields[0];
-
+        if (fields[0]) {
+            owner = fields[0];
+        }
         files.forEach(function(file) {
-
             imgur.uploadFile(file.path)
                 .then(function(json) {
-                    console.log(json.data);
-                    res.send('http://' + req.headers.host + '/' + json.data.id);
+                    console.log(connection.escape(id) + ',' + connection.escape(json.data.link) + ',' + "'" + connection.escape(json.data.datetime) + "'" + ',' + connection.escape(json.data.deletehash) + ',' + connection.escape(owner))
+                    var query = connection.query('INSERT INTO images ( id, direct, timestamp, delete, owner ) VALUES ( ' + connection.escape(id) + ',' + connection.escape(json.data.link) + ',' + "'" + connection.escape(json.data.datetime) + "'" + ',' + connection.escape(json.data.deletehash) + ',' + connection.escape(owner) + ')');
                 })
                 .catch(function(err) {
                     console.error(err.message);
@@ -44,7 +51,7 @@ router.post('/upload', function(req, res) {
 
     form.parse(req);
 
-
+    res.send('http://' + req.headers.host + '/' + id);
 
 });
 
