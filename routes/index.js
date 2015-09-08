@@ -42,14 +42,13 @@ router.get("/:id", function(req, res) {
     var id = req.params.id.split('.')[0];
     var direct = false;
     if (req.params.id.split('.')[1]) {
-        console.log('direct')
         direct = true;
     }
 
     connection.query('SELECT * FROM images WHERE id = ' + connection.escape(id), function(err, row, fields) {
         if (!row[0]) {
             res.render('image', {
-                direct: ''
+                direct: false
             });
         } else {
             if (!direct) {

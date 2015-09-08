@@ -12,6 +12,17 @@ var fs = require('fs'),
     bodyParser = require('body-parser'),
     routes = require('./routes/index');
 
+
+
+var connection = db.connectdb();
+
+connection.connect(function(err) {
+    if (err) {
+        console.log(err);
+    }
+});
+
+
 var events = require('events');
 var eventEmitter = new events.EventEmitter();
 
@@ -53,10 +64,22 @@ eventEmitter.on('uploaded', function(data) {
     io.emit('uploaded', data);
 })
 
-db.connectdb().connect(function(err) {
-    if (err) {
-        console.log(err);
-    }
+io.on('connection', function(socket) {
+    socket.on('getdirect', function(data) {
+        console.log(data);
+        connection.query('SELECT * FROM images WHERE id = ' + connection.escape(data.url), function(err, row, fields) {
+            if (row[0]) {
+                io.emit('uploaded', {
+                    id: row[0].id,
+                    direct: row[0].direct
+                });
+            }
+        });
+    });
 });
+
+
+
+
 
 console.log("Server started on port: 80");
