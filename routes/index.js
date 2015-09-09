@@ -5,7 +5,6 @@ var express = require('express'),
     path = require('path'),
     Cookies = require('cookies'),
     db = require('../lib/database'),
-    cors = require('cors'),
     useragent = require('useragent'),
     router = express.Router();
 
@@ -38,7 +37,7 @@ router.get('/TermsofService', function(req, res) {
 });
 
 
-router.get("/:id", cors(), function(req, res) {
+router.get("/:id", function(req, res) {
 
     var id = req.params.id.split('.')[0];
     var direct = false;

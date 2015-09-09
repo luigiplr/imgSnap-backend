@@ -11,9 +11,7 @@ var fs = require('fs'),
     url = require('url'),
     bodyParser = require('body-parser'),
     routes = require('./routes/index');
-
-
-
+var api = require('./routes/api');
 var connection = db.connectdb();
 
 connection.connect(function(err) {
@@ -29,8 +27,6 @@ var eventEmitter = new events.EventEmitter();
 var app = express();
 
 var server = app.listen(80);
-var io = require('socket.io').listen(server);
-var api = require('./routes/api');
 
 
 app.set('event', eventEmitter);
@@ -59,23 +55,6 @@ app.use(function(error, req, res, next) {
     res.render('500');
 });
 
-eventEmitter.on('uploaded', function(data) {
-    io.emit('imageinfo', data);
-})
-
-io.on('connection', function(socket) {
-    socket.on('retriveimageinfo', function(data) {
-        console.log(data);
-        connection.query('SELECT * FROM images WHERE id = ' + connection.escape(data.url), function(err, row, fields) {
-            if (row[0]) {
-                io.emit('imageinfo', {
-                    id: row[0].id,
-                    direct: row[0].direct
-                });
-            }
-        });
-    });
-});
 
 
 console.log("Server started on port: 80");

@@ -44,6 +44,8 @@
         });
     }
 
+
+
     function TiltEffect() {
         var center_pos_x = $(window).width() / 2;
         var max_degree = 10;
@@ -124,8 +126,28 @@
         //-- 6.1 change menu sequence
         ChangeMenuSequence();
 
-        var url = window.location.pathname.replace('/', '');
+        if (document.getElementById("image").src.indexOf("null") > -1) {
+            var apihit = '/api/image' + window.location.pathname;
+            var amount = 0;
+            var timerId = setInterval(function() {
+                amount++;
+                $.ajax({
+                    url: apihit,
+                    context: document.body
+                }).done(function(res) {
+                    console.log(res);
+                    if (res && res.status) {
+                        clearInterval(timerId);
+                        document.getElementById("image").src = res.direct;
+                        $('#image').fadeIn("slow");
 
+                    }
+                });
+                if (amount === 5) {
+                    clearInterval(timerId);
+                }
+            }, 1 * 1000); // do this every 1 seconds 
+        }
 
         //-- 6.2 subscribe button clicked
         $('.subscribe-button').on('click', function() {

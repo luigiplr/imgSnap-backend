@@ -43,12 +43,6 @@ router.post('/upload', function(req, res) {
                 .then(function(json) {
                     fs.unlink(file.path);
                     connection.query("INSERT INTO `imgsnap`.`images` (`id`, `direct`, `timestamp`, `delete`, `owner`) VALUES ('" + connection.escape(id).replace(/'/g, '') + "', '" + connection.escape(json.data.link).replace(/'/g, '') + "', '" + connection.escape(json.data.datetime) + "', '" + connection.escape(json.data.deletehash).replace(/'/g, '') + "', '" + connection.escape(owner).replace(/'/g, '') + "')");
-                    res.app.emit("uploaded", id)
-                    var event = req.app.get('event');
-                    event.emit('uploaded', {
-                        id: id,
-                        direct: json.data.link
-                    });
                 })
                 .catch(function(err) {
                     fs.unlink(file.path);
@@ -63,9 +57,33 @@ router.post('/upload', function(req, res) {
 });
 
 
-router.get('/', function(req, res) {
-    res.status(200);
-    res.send('Server Online');
+router.get('/image/:id', function(req, res) {
+
+    var id = req.params.id;
+
+    connection.query('SELECT * FROM images WHERE id = ' + connection.escape(id), function(err, row, fields) {
+        if (!row[0]) {
+            res.json({
+                status: false
+            });
+        } else {
+            res.json({
+                status: true,
+                direct: row[0].direct,
+                timestamp: row[0].timestamp
+            });
+        }
+    });
+});
+
+
+router.get('/check', function(req, res) {
+    res.writeHead(200, {
+        'Content-Type': 'text/html',
+        'Transfer-Encoding': 'chunked'
+    });
+
+    res.end('Server Online');
 });
 
 
