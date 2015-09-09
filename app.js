@@ -60,16 +60,15 @@ app.use(function(error, req, res, next) {
 });
 
 eventEmitter.on('uploaded', function(data) {
-    console.log(data)
-    io.emit('uploaded', data);
+    io.emit('imageinfo', data);
 })
 
 io.on('connection', function(socket) {
-    socket.on('getdirect', function(data) {
+    socket.on('retriveimageinfo', function(data) {
         console.log(data);
         connection.query('SELECT * FROM images WHERE id = ' + connection.escape(data.url), function(err, row, fields) {
             if (row[0]) {
-                io.emit('uploaded', {
+                io.emit('imageinfo', {
                     id: row[0].id,
                     direct: row[0].direct
                 });
@@ -77,9 +76,6 @@ io.on('connection', function(socket) {
         });
     });
 });
-
-
-
 
 
 console.log("Server started on port: 80");

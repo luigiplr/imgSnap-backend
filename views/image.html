@@ -1,55 +1,314 @@
-<!doctype html>
-
-<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
-<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
-<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
-<!-- Consider adding a manifest.appcache: h5bp.com/d/Offline -->
-<!--[if gt IE 8]><!-->
-<html class="no-js" lang="en-US">
-<!--<![endif]-->
-
+<!DOCTYPE html>
+<html lang="en">
+	
 <head>
-    <meta charset="utf-8">
-    <!--[if IE]>
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" >
-    <![endif]-->
-    <title>Nothing </title>
-    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
+    	<!-- 1.0 meta -->
+    	<meta charset="utf-8">
+    	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+        <meta name="description" content="Broken-Universe ScreenSharing">
+		<meta name="author" content="">
+        <meta name="keywords" content="">
+        
+        <!-- 2.0 title -->
+    	<title>Broken-Universe - <%= id %></title>
+		
+        <!-- 3.0 CSS IMPORT -->
+		<link rel="stylesheet" href="css/style.css" type="text/css">
+        <link rel="stylesheet" href="css/color-scheme.css" type="text/css">
+                        
+        <!-- support HTML5 elements and media queries for IE9 -->
+    	<!--[if lt IE 9]>
+      	<script src="js/html5shiv.js"></script>
+      	<script src="js/respond.min.js"></script>
+    	<![endif]-->		
+  	</head>
+    <body>
+    	<!-- 4.0 preloader -->
+        <div class="preloader">
+        	<!-- sliding cube -->
+        	<div class="sliding-cube centering-xy">
+      			<div class="cube1 cube"></div>
+      			<div class="cube2 cube"></div>
+    		</div>
+            <!-- end sliding cube -->
+        </div>
+        <!-- end preloader -->
+        
+    	<!-- 5.0 background container -->
+        <div class="bg-container">
+        </div>
+        <!-- end background container -->
+        
+        <!-- 6.0 menu -->
+        <nav class="menu">
+           	<!-- 6.1 menu icon -->
+            <a href="#" class="icon-container entrance">
+               	<span></span>
+                <span></span>
+                <span></span>
+            </a>
+            <!-- end menu icon -->
+                
+            <!-- 6.2 menu list -->
+            <ul class="menu-list">
+               	<li class="menu-contact"><a href="#" class="link-2" data-section="contact">contact</a></li>
+                <li class="menu-service"><a href="#" class="link-2" data-section="service">downloads</a></li>
+                <li class="menu-about"><a href="#" class="link-2" data-section="about">about</a></li>
+            </ul>
+            <!-- end menu list -->
+                
+            <!-- 6.3 social media links -->
+            <ul class="social-media-links">
+               	<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+            </ul>
+            <!-- end social media links -->
+        </nav>
+        <!-- end menu -->
+        
+        <!-- 7.0 subscribe popup -->
+        <div class="subscribe-popup">
+           	<!-- content container -->
+            <div class="content-container col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-12 centering-y">
+               	<!-- close button -->
+                <a href="#" class="link-2 close-subscribe">close x</a>
+                <!-- end close button -->
+                    
+               	<h3 class="subscribe-title">subscribe</h3>
+                    
+              	<!-- subscribe desc -->
+                <p class="subscribe-desc">
+                   	Join our newsletter to get notified, we will send you an email when we are ready.<br />Don’t worry, we won’t spam you.
+                </p>
+                <!-- ens subscribe desc -->
+                    
+                <!-- subscribe form container -->
+                <div class="subscribe-form-container col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-12">
+                   	<form class="subscribe-form" action="http://facebook.us3.list-manage.com/subscribe/post-json?u=3dbee991d579ab45fd913a688&amp;id=6b6542f366&amp;c=?" method="get" enctype="multipart/form-data">
+                   		<!-- input container -->
+                        <div class="input-container col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                           	<input id="email_subscribe" type="text" name="EMAIL" autocomplete="off" class="subscribe-email" placeholder="insert your email address" />
+                            <!-- this div is for form focus effect -->
+                            <div class="top-border"></div>
+                            <div class="pillars"></div>
+                            <!-- this div is for form focus effect -->
+                                    
+                            <span class="email-icon"></span>
+                        </div>
+                        <!-- end input container -->
+                            
+                        <button type="submit" name="submit_subscribe" class="button-1 dark submit-subscribe" data-text="submit">
+                          	<span>s</span><span>u</span><span>b</span><span>m</span><span>i</span><span>t</span>
+                        </button>
+                            
+                        <!-- notif container (needed for showing the notifications) -->
+                  		<div class="subscribe-notif"></div>
+                  		<!-- end notif container -->
+                  	</form>
+                </div>
+                <!-- end subscribe form container -->
+            </div>
+            <!-- end content container -->
+        </div>
+        <!-- end subscribe popup -->
+        
+        <!-- 8.0 page container -->
+        <div class="page-container">
+        	<!-- 8.1 home section -->
+            <section class="home-section entrance">
+            	<!-- intro -->
+                <div class="intro">
+                	<!-- content container -->
+                   <div class="content-container col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-12 centering-y">
+                    	
+                        
+                        <!-- 8.1.1 main title -->
+           
+
+                		<img id="image" src="<%= direct %>" class="centering-xy"  style="
+    max-width: 83vw;
+    position: fixed;
+    max-height: 90vh;
+    margin-top: 10vh;
   
-</head>
-<body>
+" />
+                    <!-- end right content -->
+            
+                        <!-- end main title -->
+                    </div>
+                    <!-- end content container -->
+                    
+     
+                </div>
+                <!-- end intro -->
+                
+
+                <!-- end countdown -->
+            </section>
+            <!-- end home section -->
+            
+            <!-- 8.2 about section -->
+            <section class="about-section">
+            	<!-- content container -->
+
+                <!-- end content container -->
+            </section>
+            <!-- end about section -->
+            
+            <!-- 8.3 service section -->
+            <section class="service-section">
+            	<!-- content container -->
+                <div class="content-container col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-12 centering-y">
+                	<!-- left content -->
+                  
+                    	<!-- section title -->
+                        <div class="section-title">
+                            <h2>Downloads</h2>
+                        </div>
+                        <!-- end section title -->
+                        
+                        <!-- inner container -->
+                        <div class="inner-container no-padding no-bg">
+                        	<!-- top side -->
+                            <div class="half-height no-bg">
+                            	<!-- statistic 1 -->
+                                <div class="statistic col-lg-6 col-md-6 col-sm-6 col-xs-12 centering-y">
+                                	<div class="counter">
+                                    	<span class="counter-up" data-from="0" data-to="240" data-speed="2000"></span>+
+                                    </div>
+                                    <div class="title">
+                                    	Uploaded Pictures
+                                    </div>
+                                </div>
+                                <!-- end statistic 1 -->
+                                
+                                <!-- statistic 2 -->
+                                <div class="statistic col-lg-6 col-md-6 col-sm-6 col-xs-12 centering-y">
+                                	<div class="counter">
+                                    	<span class="counter-up" data-from="0" data-to="230" data-speed="2000"></span>+
+                                    </div>
+                                    <div class="title">
+                                    	Downloads
+                                    </div>
+                                </div>
+                                <!-- end statistic 2 -->
+                            </div>
+                            <!-- end top side -->
+                            
+                            <!-- bottom side -->
+                            <div class="half-height">
+                            	<!-- purchase button -->
+                                <div class="purchase-container centering-y">
+                                	<a href="#" target="_blank" class="button-1 dark purchase-button" data-text="download">
+                        				<span>d</span><span>o</span><span>w</span><span>n</span><span>n</span><span>l</span><span>o</span><span>a</span><span>d</span>
+                        			</a>
+                                </div>
+                        		<!-- end purchase button -->
+                            </div>
+                            <!-- end bottom side -->
+                        </div>
+                        <!-- end inner container -->
+                  
+                    <!-- end left content -->
+                    
+              
+                    <!-- end right content -->
+                </div>
+                <!-- end content container -->
+            </section>
+            <!-- end service section -->
+            
+            <!-- 8.4 contact section -->
+            <section class="contact-section">
+            	<!-- content container -->
+                <div class="content-container col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-12 centering-y">
+                	<!-- left content -->
+               
+                    <!-- end left content -->
+                    
+                    <!-- right content -->
+              
+                    	<!-- inner container -->
+                        <div class="inner-container no-bg">
+                        	<!-- 8.4.2 contact form container -->
+                    		<div class="contact-form-container col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    			<form class="contact-form" action="http://premiumtemplatewebsite.com/template/nagi/php/contact.php" method="post" enctype="multipart/form-data">
+                    	    		<!-- name -->
+                            		<div class="input-container col-lg-12 col-md-12 col-xs-12 col-sm-12 col-xs-12">
+                    	   				<input type="text" class="contact-name" id="name" name="name" placeholder="insert your name" />
+                    	    			
+                                        <span class="user-icon"></span>
+                                        
+                                    	<!-- this div is for form focus effect -->
+                                		<div class="top-border"></div>
+                                		<div class="pillars"></div>
+                                		<!-- this div is for form focus effect -->
+                            		</div>
+                            		<!-- end name -->
+                                
+                            		<!-- email -->
+                            		<div class="input-container col-lg-12 col-md-12 col-xs-12 col-sm-12 col-xs-12">
+                    	  				<input type="email" class="contact-email" id="email" name="email" autocomplete="off" placeholder="insert your email address" />
+                    	    			<span class="email-icon"></span>
+                                        
+                                    	<!-- this div is for form focus effect -->
+                                		<div class="top-border"></div>
+                                		<div class="pillars"></div>
+                                		<!-- this div is for form focus effect -->
+                            		</div>
+                            		<!-- end email -->
+                            
+                            		<!-- message -->
+                            		<div class="input-container col-lg-12 col-md-12 col-xs-12 col-sm-12 col-xs-12">
+                        		   		<textarea class="contact-message" id="message" name="message" placeholder="insert your message"></textarea>
+                        	   			
+                                        <span class="note-icon"></span>
+                                    
+                            	    	<!-- this div is for form focus effect -->
+                                		<div class="top-border"></div>
+                                		<div class="pillars"></div>
+                                		<!-- this div is for form focus effect -->
+                            		</div>
+                            		<!-- end message -->
+                        			
+                        			<!-- notif container (to show success or error notif) -->
+                        			<div class="contact-notif col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        			</div>
+                        			<!-- end notif container -->
+                                    
+                                    <button type="submit" name="submit_message" class="button-1 submit-message" data-text="submit">
+                            			<span>s</span><span>u</span><span>b</span><span>m</span><span>i</span><span>t</span>
+                            		</button>
+                    			</form>
+                    		</div>
+                    		<!-- end contact form container -->
+                        </div>
+                        <!-- end inner container -->
+                 
+                    <!-- end right content -->
+                </div>
+                <!-- end content container -->
+            </section>
+            <!-- end contact section -->
+        </div>
+        <!-- end page container -->
+                
+        <!-- 9.0 javascript import --> 
+        <!-- all library and plugin -->
 
 
-<img id="image" src="<%= direct %>"></img>
-
-<script src="/socket.io/socket.io.js"></script>
-  <script>
-	var url = window.location.pathname.replace('/', '');
-  var socket = io('http://broken-universe.com');
-  var changed = false;
-  socket.on('uploaded', function (data) {
-    if(data.id === url && !changed){
-    	changed = true;
-    	console.log("YIPPY");
-    	document.getElementById("image").src=data.direct;
-    	info = data.direct;
-    	socket.disconnect();
-    }
-  });
-
-  document.addEventListener("DOMContentLoaded", function(event) {
-
-  if(!changed){
-	socket.emit('getdirect', { url: url });
-  }else{
-  	socket.disconnect();
-  }
-  });
 
 
-</script>
 
-</body>
+
+
+        <script type="text/javascript" src="js/lib.min.js"></script>
+        <!-- main js -->
+        <script type="text/javascript" src="js/main_4.js"></script>
+
+<script src="https://cdn.socket.io/socket.io-1.3.5.js"></script>
+
+
+    </body>
 
 </html>

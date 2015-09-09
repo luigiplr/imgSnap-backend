@@ -48,7 +48,8 @@ router.get("/:id", function(req, res) {
     connection.query('SELECT * FROM images WHERE id = ' + connection.escape(id), function(err, row, fields) {
         if (!row[0]) {
             res.render('image', {
-                direct: false
+                id: id,
+                direct: null
             });
         } else {
             if (!direct) {

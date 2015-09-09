@@ -1,0 +1,340 @@
+/*-- 
+AUTHOR   : SimplePixel
+URL      : http://themeforest.net/user/SimplePixel
+TEMPLATE : Nagi - Coming Soon Template
+VERSION  : 1.0
+
+TABLE OF CONTENTS
+1.0 BASIC STYLE
+2.0 TYPOGRAPHY
+3.0 FORMS
+4.0 BUTTONS & LINKS STYLE
+5.0 TRANSITION
+6.0 PRELOADER
+7.0 BACKGROUND CONTAINER
+8.0 MENU
+9.0 BASIC PAGE-CONTAINER & SECTION STYLE
+10.0 SUBSCRIBE POPUP
+11.0 HOME SECTION
+12.0 ABOUT SECTION
+13.0 SERVICE SECTION
+14.0 CONTACT SECTION
+15.0 STYLE FOR TABLET LANDSCAPE
+16.0 STYLE FOR TABLET PORTRAIT
+17.0 STYLE FOR EXTRA SMALL DEVICES 
+--*/
+
+/*-- ========================================= --
+	1.0 BASIC STYLE
+/*-- ========================================= --*/
+
+
+/*-- ========================================= --
+	2.0 TYPOGRAPHY
+/*-- ========================================= --*/ 
+h1,
+p.subtitle-big,
+p.subtitle-medium
+{
+	color:white;
+}
+p{
+	color:#636363;
+}
+.highlight{
+	color:#f71735;
+}
+
+/*-- ========================================= --
+	3.0 FORMS
+/*-- ========================================= --*/
+.input-container .top-border,
+.form-row .top-border,
+.input-container .pillars::before,
+.input-container .pillars::after
+{
+	background:#262626;
+}
+.input-container .pillars{
+	border-bottom:2px solid #262626;
+}
+input[type="text"],
+input[type="email"],
+textarea,
+.subscribe-form-container .email-icon::before,
+.contact-form-container .user-icon::before,
+.contact-form-container .email-icon::before,
+.contact-form-container .note-icon::before
+{
+	color:#636363;
+}
+.contact-form-container input[type="text"],
+.contact-form-container input[type="email"],
+.contact-form-container textarea,
+.contact-form-container .user-icon::before,
+.contact-form-container .email-icon::before,
+.contact-form-container .note-icon::before
+{
+	color:#d1d1d1;
+}
+
+.contact-form-container .input-container .top-border,
+.contact-form-container .form-row .top-border,
+.contact-form-container .input-container .pillars::before,
+.contact-form-container .input-container .pillars::after
+{
+	background:white;
+}
+.contact-form-container .input-container .pillars{
+	border-bottom:2px solid white;
+}
+.form-error ~ .email-icon::before,
+.form-error ~ .user-icon::before,
+.form-error ~ .note-icon::before,
+label.subscribe-notif-error, 
+label.error,
+label.contact-notif-error
+{
+	color:#f71735;
+}
+label.loading-subscribe{
+	color:#262626;
+}
+label.loading-contact{
+	color:white;
+}
+label.subscribe-notif-success, 
+label.contact-notif-success{
+	color:#3ca156;
+}
+
+/*-- ========================================= --
+	4.0 BUTTONS & LINKS STYLE
+/*-- ========================================= --*/
+.button-1{
+	color:white;
+	background:#f71735;
+}
+.button-1.dark > span{
+	color:#262626;
+}
+.button-1:hover{
+	background:none;
+	border:2px solid white;
+}
+.button-1.dark:hover{
+	border:2px solid #262626;
+}
+.link-1,
+.link-2
+{
+	color:white;
+}
+.link-1::before,
+.link-2::before,
+.link-1::after,
+.link-2::after
+{
+	background:white;
+}
+.carousel-button{
+	border:1px solid #e9e9e9;
+}
+.carousel-button::before{
+	color:#262626;
+	background:white;
+}
+.carousel-button::after{
+	color:white;
+	background:#f71735;
+}
+
+/*-- ========================================= --
+	5.0 TRANSITION
+/*-- ========================================= --*/
+
+
+/*-- ========================================= --
+	6.0 PRELOADER
+/*-- ========================================= --*/
+.preloader{
+	background:white;
+}
+.preloader .sliding-cube .cube{
+	background:#262626;
+}
+
+
+/*-- ========================================= --
+	7.0 BACKGROUND CONTAINER
+/*-- ========================================= --*/
+.bg-container::before{
+	background:rgba(0,0,0,0.6);
+}
+
+
+/*-- ========================================= --
+	8.0 MENU
+/*-- ========================================= --*/
+nav.menu .icon-container > span{
+	background:white;
+}
+ul.menu-list li a::before{
+	background:#f71735;
+}
+ul.menu-list li a:hover,
+ul.social-media-links li a:hover
+{
+	color:#f71735;
+}
+ul.social-media-links li a{
+	color:white;
+}
+
+
+/*-- ========================================= --
+	9.0 BASIC PAGE-CONTAINER & SECTION STYLE
+/*-- ========================================= --*/
+section .section-title{
+	color:white;
+}
+section .inner-container{
+	border:2px solid white;
+	background:white;
+}
+section .inner-container .half-height{
+	background:white;
+}
+
+
+/*-- ========================================= --
+	10.0 SUBSCRIBE POPUP
+/*-- ========================================= --*/
+.subscribe-popup .content-container{
+	background:white;
+}
+.subscribe-popup .close-subscribe{
+	color:#262626;
+}
+.subscribe-popup .close-subscribe:hover{
+	color:#f71735;
+}
+
+
+/*-- ========================================= --
+	11.0 HOME SECTION
+/*-- ========================================= --*/
+.home-section .to-home{
+	color:#f71735;
+}
+.home-section .to-home:hover,
+.countdown-container .hours_dash .digit,
+.countdown-container .minutes_dash .digit,
+.countdown-container .dash_title
+{
+	color:white;
+}
+.countdown-container .days_dash .digit{
+	color:#f71735;
+}
+
+
+/*-- ========================================= --
+	12.0 ABOUT SECTION
+/*-- ========================================= --*/
+.skill-container .skill p.skill-name,
+.skill-container .skill .progress-bar-skill span::before
+{
+	color:#262626;
+}
+.skill-container .skill .progress-bar-skill{
+	background:#d1d1d1;
+}
+.skill-container .skill .progress-bar-skill span,
+.skill-container .skill .progress-bar-skill span::after
+{
+	background:#f71735;
+}
+.portfolio-container .portfolio .img-container .overlay{
+	background:rgba(247,23,53,0.7);
+}
+.portfolio-container .portfolio .img-container .overlay i,
+.portfolio-container .portfolio .text-container,
+.portfolio-container .portfolio .text-container p
+{
+	color:white;
+}
+
+
+/*-- ========================================= --
+	13.0 SERVICE SECTION
+/*-- ========================================= --*/
+.service-section .statistic .counter{
+	color:#f71735;
+}
+.service-section .statistic .title{
+	color:white;
+}
+.service-container .service .icon-container{
+	color:white;
+	box-shadow: inset 0 0 0 65px #f71735;
+	-webkit-box-shadow: inset 0 0 0 65px #f71735;
+	-moz-box-shadow: inset 0 0 0 65px #f71735;
+	-ms-box-shadow: inset 0 0 0 65px #f71735;
+	-o-box-shadow: inset 0 0 0 65px #f71735;
+}
+.service-container .service .text-container p.title{
+	color:#262626;
+}
+.service-container .service:hover .icon-container{
+	color:#f71735;
+	box-shadow: inset 0 0 0 2px #f71735;
+	-webkit-box-shadow: inset 0 0 0 2px #f71735;
+	-moz-box-shadow: inset 0 0 0 2px #f71735;
+	-ms-box-shadow: inset 0 0 0 2px #f71735;
+	-o-box-shadow: inset 0 0 0 2px #f71735;
+}
+
+
+/*-- ========================================= --
+	14.0 CONTACT SECTION
+/*-- ========================================= --*/
+.contact-section .contact-details li{
+	background:#f3f3f3;
+}
+.contact-section .contact-details li .icon-1,
+.contact-section .contact-details li .icon-2
+{
+	color:#d1d1d1;
+}
+.contact-section .contact-details li p.title{
+	color:#262626;
+}
+.contact-section .contact-details li p.desc{
+	color:#636363;
+}
+
+
+/*-- ===================================================== --*
+	15.0 STYLE FOR TABLET LANDSCAPE 
+/*-- ===================================================== --*/
+
+
+/*-- ===================================================== --*
+	16.0 STYLE FOR TABLET PORTRAIT 
+/*-- ===================================================== --*/
+@media all and (max-width: 991px){
+	.service-section .left-content{
+		border-bottom:1px solid #d1d1d1;
+	}
+}
+
+
+/*-- ===================================================== --*
+	17.0 STYLE FOR EXTRA SMALL DEVICES 
+/*-- ===================================================== --*/
+@media all and (max-width: 767px){	
+	nav.menu ul.menu-list{
+		background:rgba(0,0,0,0.9);
+	}
+}
