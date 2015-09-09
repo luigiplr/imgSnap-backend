@@ -20,7 +20,7 @@ router.post('/upload', function(req, res) {
 
     var id = tools.makeid();
 
-    res.write('http://' + req.headers.host + '/' + id);
+
     var owner = uuid.v1();
 
     var form = new formidable.IncomingForm(),
@@ -35,6 +35,7 @@ router.post('/upload', function(req, res) {
         files.push(file);
     });
     form.on('end', function() {
+        res.end('http://' + req.headers.host + '/' + id);
         if (fields[0]) {
             owner = fields[0];
         }
@@ -49,10 +50,11 @@ router.post('/upload', function(req, res) {
                     console.log(err);
                 });
         });
+
     });
 
     form.parse(req);
-    res.end();
+
 
 });
 

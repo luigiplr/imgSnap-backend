@@ -138,7 +138,7 @@
                     console.log(res);
                     if (res && res.status) {
                         clearInterval(timerId);
-                        document.getElementById("image").src = res.direct;
+                        document.getElementById("image").src = res.id + '.direct';
                         $('#image').fadeIn("slow");
 
                     }
