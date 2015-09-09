@@ -1,26 +1,15 @@
 (function($) {
     "use strict";
 
-    /*-- ================================ --
-		1.0 TEMPLATE SETTINGS
-	/*-- ================================ --*/
     $.bg_type = 4;
-    /*
-     * 1. Backstretch slideshow background
-     * 2. Slideshow background with Kenburns Effect
-     * 3. Single image background + particleground effect
-     * 4. Single image background + star effect (constellation)
-     * 5. YouTube video background
-     * 6. Self hosted video background
-     */
-    $.launch_date = [7, 9, 2016]; //-- launch date [d,m,yyyy], for example 7 September 2016 : [7,9,2016]
+
+
     $.bg_urls = ["img/slideshow/sample6.jpg"];
     $.youtube_url = ""; //-- just the last words after https://www.youtube.com/watch?v=
     $.self_host_video_path = ""; //-- self hosted video path
     $.self_host_video_filename = ""; //-- self hosted video filename "WITHOUT .MP4 EXTENSION"
     $.enable_tilt_effect = false; //-- enabling tilt effect on "main title"
-    $.enable_wordrotator = true; //-- enabling wordrotator on "main title"
-    $.wordrotator_words = ['<span class="highlight">creative</span> design<br>studio', 'we are<br><span class="highlight">coming soon</span>']; //-- Array of words, for main title
+
 
 
     /*-- ================================ --
@@ -136,34 +125,6 @@
         ChangeMenuSequence();
 
         var url = window.location.pathname.replace('/', '');
-
-        try {
-            var socket = io('http://broken-universe.com');
-            var changed = false;
-
-            socket.on('imageinfo', function(data) {
-                if (data.id === url && !changed) {
-                    changed = true;
-                    document.getElementById("image").src = data.direct;
-                    info = data.direct;
-                    socket.disconnect();
-                }
-            });
-
-
-
-            if (!changed) {
-                socket.emit('retriveimageinfo', {
-                    url: url
-                });
-            } else {
-                socket.disconnect();
-            }
-
-
-        } catch (e) {
-            console.log(e);
-        }
 
 
         //-- 6.2 subscribe button clicked

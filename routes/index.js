@@ -5,6 +5,7 @@ var express = require('express'),
     path = require('path'),
     Cookies = require('cookies'),
     db = require('../lib/database'),
+    cors = require('cors'),
     useragent = require('useragent'),
     router = express.Router();
 
@@ -37,13 +38,24 @@ router.get('/TermsofService', function(req, res) {
 });
 
 
-router.get("/:id", function(req, res) {
+router.get("/:id", cors(), function(req, res) {
 
     var id = req.params.id.split('.')[0];
     var direct = false;
     if (req.params.id.split('.')[1]) {
         direct = true;
     }
+
+    // Website you wish to allow to connect
+    res.setHeader('Access-Control-Allow-Origin', '*');
+
+    // Request methods you wish to allow
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+
+    // Request headers you wish to allow
+    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+
+
 
     connection.query('SELECT * FROM images WHERE id = ' + connection.escape(id), function(err, row, fields) {
         if (!row[0]) {

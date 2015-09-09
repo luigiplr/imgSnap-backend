@@ -1,58 +1,10 @@
-/*-- 
-AUTHOR   : SimplePixel
-URL      : http://themeforest.net/user/SimplePixel
-TEMPLATE : Nagi - Coming Soon Template
-VERSION  : 1.0
 
-TABLE OF CONTENTS
-0.0 CSS IMPORT
-1.0 BASIC STYLE
-2.0 TYPOGRAPHY
-3.0 FORMS
-	3.1 FORMS WHEN FOCUS
-	3.2 FORMS WHEN ERROR
-	3.3 FORMS LABEL STYLE
-4.0 BUTTONS & LINKS STYLE
-	4.1 BUTTON ON HOVER
-	4.2 SHOW / HIDE COUNTDOWN LINK STYLE
-	4.3 CAROUSEL CONTROLS
-	4.4 CAROUSEL CONTROLS ON HOVER
-5.0 TRANSITION
-6.0 PRELOADER
-	6.1 PRELOADER ANIMATION
-7.0 BACKGROUND CONTAINER
-8.0 MENU
-	8.1 MENU LIST
-	8.2 MENU LIST ON HOVER
-	8.3 SOCIAL MEDIA LINKS
-	8.4 SOCIAL MEDIA LINKS ON HOVER
-	8.5 MENU ON OPEN
-9.0 BASIC PAGE-CONTAINER & SECTION STYLE
-	9.1 INNER CONTAINER
-10.0 SUBSCRIBE POPUP
-11.0 HOME SECTION
-	11.1 COUNTDOWN STYLE
-12.0 ABOUT SECTION
-	12.1 PORTFOLIO
-13.0 SERVICE SECTION
-	13.1 SERVICE ON HOVER
-14.0 CONTACT SECTION
-15.0 STYLE FOR TABLET LANDSCAPE
-16.0 STYLE FOR TABLET PORTRAIT
-17.0 STYLE FOR EXTRA SMALL DEVICES 
---*/
-
-/*-- ========================================= --
-	0.0 CSS IMPORT
-/*-- ========================================= --*/
 @import url("bootstrap.min.css");
 @import url("font-awesome.min.css");
 @import url("animate.min.css");
 @import url("et-line-icons.css");
-@import url("magnific-popup.css");
+
 @import url("jquery.wordrotator.min.css");
-@import url("owl.carousel.css");
-@import url("owl.theme.css");
 @import url("jquery.kenburnsy.css");
 
 /*-- ====== IMPORT GOOGLE FONT ======= --*/
